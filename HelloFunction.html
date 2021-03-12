@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hello</title>
+    <script>
+        let yesnoaccept = ["Да", "да", "Нет", "нет", "Yes", "yes", "No", "no"];
+        //Данный массив можно менять как угодно
+        let names = ["Morgot", "Aspect", "Kraken", "Bender", "Lynch", "Big Papa", "Mad Dog", "Bowser", "O’Doyle", "Bruise", "Psycho", "Cannon", "Ranger", "Clink", "Ratchet", "Cobra", "Reaper", "Colt", "Rigs", "Crank", "Ripley", "Creep", "Roadkill", "Daemon", "Ronin"];
+        let username;
+        let yesNo;
+        //название игры можно спокойно менять
+        let theName = ("Свояк");
+        function randchoice(somearray) {
+            let index = Math.floor(Math.random() * somearray.length);
+            return somearray[index]
+            }
+            function helloUser(progname) {
+            alert("Это " + progname + ", Приветствую!!!");
+            username = prompt("Назовись");
+
+                while (true) {
+                    if (username === ("")) {
+                    username = randchoice(names);
+                    alert("Раз ты не назвался, то я буду звать тебя " + username);
+                    break;
+                    } else if (!isNaN(username)) {
+                    username = prompt("Пожалуйста, используйте так же латинские и русские символы");
+                    } else {
+                    break;
+                    }
+                }
+            // Даём возможность выйти в самом начале путём наводящего вопроса
+            yesNo = prompt("Ну что, " + username + ", ты готов?");
+            exit = ["No", "no", "Нет", "нет"];
+            next = ["Yes", "yes", "Да", "да"];
+                while (true) {
+                if (!yesnoaccept.includes(yesNo)) {
+                alert("Пожалуйста, " + username + " ответь на вопрос");
+                yesNo = prompt("Ты готов продолжить?");
+                } else if (exit.includes(yesNo)) {
+                alert("Ааа, испугался... Тогда тебе тут делать нечего, " + username);
+                break;
+                } else if (next.includes(yesNo)) {
+                alert("Отлично, " + username +", тогда переёдём к делу");
+                break;
+                }
+            }
+        }
+        helloUser(theName)
+        </script>
+</head>
+<body>
+
+</body>
+</html>
